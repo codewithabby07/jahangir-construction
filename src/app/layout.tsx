@@ -132,8 +132,6 @@ const organizationSchema = {
   ],
 };
 
-import MainLayout from "@/components/MainLayout";
-
 export default function RootLayout({
   children,
 }: {
@@ -150,8 +148,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col antialiased bg-[#0c0d0e]">
-        <MainLayout>{children}</MainLayout>
+      <body className="min-h-full flex flex-col antialiased">
+        <Navbar />
+        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
+        <Footer />
+        <MobileContactBar />
       </body>
     </html>
   );
